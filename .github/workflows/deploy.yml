@@ -22,7 +22,7 @@ jobs:
         run: flutter pub get
         
       - name: Build
-        run: flutter build web --base-href /your_repository_name/
+        run: flutter build web --base-href /resellah_landing_welcome_new/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
