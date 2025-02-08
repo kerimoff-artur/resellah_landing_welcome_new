@@ -3,6 +3,7 @@ import 'package:resellah_landing_new/views/home/home_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:resellah_landing_new/services/analytics_service.dart';
+import 'package:resellah_landing_new/utils/theme/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,12 +23,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Resellah',
-      theme: ThemeData(
-        textTheme: Theme.of(context).textTheme.apply(
-          fontFamily: 'Roboto',
-        ),
-      ),
+      theme: AppTheme.lightTheme,
       home: const HomeView(),
+      routes: {
+        '/': (context) => const HomeView(),
+      },
     );
   }
 }

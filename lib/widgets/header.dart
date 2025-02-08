@@ -147,7 +147,6 @@ class _HeaderState extends State<Header> {
               height: Responsive.height(context) * (Responsive.isTablet(context) ? 0.5 : 0.6),
               fit: BoxFit.contain,
               errorBuilder: (context, error, stackTrace) {
-                print('Error loading image: $error');
                 return const Center(
                   child: Icon(Icons.error_outline, color: Colors.red, size: 40),
                 );
@@ -170,7 +169,6 @@ class _HeaderState extends State<Header> {
           height: Responsive.height(context) * 0.3,
           fit: BoxFit.contain,
           errorBuilder: (context, error, stackTrace) {
-            print('Error loading image: $error');
             return const Center(
               child: Icon(Icons.error_outline, color: Colors.red, size: 40),
             );
