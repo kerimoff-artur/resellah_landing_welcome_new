@@ -22,7 +22,11 @@ jobs:
         run: flutter pub get
         
       - name: Build
-        run: flutter build web --base-href /resellah_landing_welcome_new/
+        run: |
+          flutter build web --base-href /resellah_landing_welcome_new/
+          cp web/manifest.json build/web/
+          cp web/flutter.js build/web/
+          cp -r web/icons build/web/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
