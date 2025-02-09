@@ -16,7 +16,6 @@ class _AnimatedBackgroundState extends State<AnimatedBackground> with SingleTick
   @override
   void initState() {
     super.initState();
-    print('Loading background image from: ${AppImages.textLogoLight}');
     _controller = AnimationController(
       duration: const Duration(seconds: 40),
       vsync: this,
@@ -45,18 +44,17 @@ class _AnimatedBackgroundState extends State<AnimatedBackground> with SingleTick
       height: height * 4,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(AppImages.textLogoLight),
+          image: const AssetImage(AppImages.textLogoLight),
           repeat: ImageRepeat.repeat,
           scale: 6.0,
           opacity: 0.2,
-          onError: (exception, stackTrace) {
-            print('Error loading background image: $exception');
-            // Fallback to a solid color if image fails to load
-            return const BoxDecoration(
-              color: Colors.grey,
-            );
+          onError: (_, __) {
+            // Just return null to use fallback color
+            return null;
           },
         ),
+        // Add fallback color here
+        color: Colors.grey.withOpacity(0.1),
       ),
     );
   }
