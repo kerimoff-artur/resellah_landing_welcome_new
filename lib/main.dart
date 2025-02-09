@@ -25,9 +25,6 @@ class MyApp extends StatelessWidget {
       title: 'Resellah',
       theme: AppTheme.lightTheme,
       home: const HomeView(),
-      routes: {
-        '/': (context) => const HomeView(),
-      },
     );
   }
 }

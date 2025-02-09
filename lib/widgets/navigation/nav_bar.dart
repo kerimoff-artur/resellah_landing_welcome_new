@@ -26,9 +26,9 @@ class NavBar extends StatelessWidget {
           ),
 
           if (!Responsive.isMobile(context))
-            Row(
+            const Row(
               mainAxisSize: MainAxisSize.min,
-              children: const <Widget>[
+              children: <Widget>[
                 _NavBarItem(
                   'Partnership',
                   url: 'https://forms.gle/NVFUgN4DjdZBu2sq6',

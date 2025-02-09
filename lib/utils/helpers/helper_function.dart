@@ -9,7 +9,7 @@ class HelperFunction {
     
   
   if (value == 'green') {
-    return Color(0xFF307351);
+    return const Color(0xFF307351);
   } else if (value == 'red') {
     return Colors.red;
   }
@@ -17,9 +17,9 @@ class HelperFunction {
     return Colors.blue;
   }
   else if (value == 'yellow') {
-    return Color(0xFFEDF060);
+    return const Color(0xFFEDF060);
   } else if (value == 'orange') {
-    return Color(0xFFF86624);
+    return const Color(0xFFF86624);
   } else if (value == 'purple') {
     return Colors.purple;
   } else if (value == 'pink') {
@@ -29,9 +29,9 @@ class HelperFunction {
   } else if (value == 'grey') {
     return Colors.grey;
   } else if (value == 'black') {
-    return Color(0xFF2F323A);
+    return const Color(0xFF2F323A);
   } else if (value == 'white') {
-    return Color(0xFFF7F7F7);
+    return const Color(0xFFF7F7F7);
   } else {
     return null;
   }
@@ -52,7 +52,7 @@ static void showAlert(String title, String message) {
         content: Text(message),
         actions: [
           TextButton(onPressed: () => Navigator.of(context).pop(), 
-          child: Text('OK')),
+          child: const Text('OK')),
         ],
       );
     }
