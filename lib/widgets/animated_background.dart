@@ -46,14 +46,15 @@ class _AnimatedBackgroundState extends State<AnimatedBackground> with SingleTick
         image: DecorationImage(
           image: const AssetImage(AppImages.textLogoLight),
           repeat: ImageRepeat.repeat,
-          scale: 6.0,
+          scale: 15.0,
           opacity: 0.2,
           onError: (_, __) {
             // Just return null to use fallback color
-            return null;
+            return;
           },
         ),
         // Add fallback color here
+        // ignore: deprecated_member_use
         color: Colors.grey.withOpacity(0.1),
       ),
     );
