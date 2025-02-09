@@ -34,11 +34,16 @@ jobs:
           
       - name: Build
         run: |
-          # Build Flutter web with correct base href
+          # Build Flutter web
           flutter build web --base-href /resellah_landing_welcome_new/
           
-          # Ensure index.html has correct base href
+          # Fix paths in index.html
           sed -i 's|<base href="/">|<base href="/resellah_landing_welcome_new/">|g' build/web/index.html
+          
+          # Fix paths in manifest.json
+          if [ -f "build/web/manifest.json" ]; then
+            sed -i 's|"start_url": ".|"start_url": "/resellah_landing_welcome_new|g' build/web/manifest.json
+          fi
           
           # Create 404 page
           cp build/web/index.html build/web/404.html
