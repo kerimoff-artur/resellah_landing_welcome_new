@@ -10,7 +10,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
+      
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.27.0'
           channel: 'stable'
@@ -22,10 +24,14 @@ jobs:
         run: flutter pub get
         
       - name: Build
-        run: flutter build web --base-href /resellah_landing_welcome_new/
-        
+        run: |
+          flutter build web --base-href /resellah_landing_welcome_new/
+          # Ensure all required files are present
+          cp build/web/index.html build/web/404.html
+      
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/web 
+          publish_dir: ./build/web
+          force_orphan: true  # This creates a single-commit history 
