@@ -23,18 +23,28 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
         
+      - name: Verify Directory Structure
+        run: |
+          mkdir -p assets/images
+          ls -la assets/images || true
+          
       - name: Build
         run: |
+          # Build Flutter web
           flutter build web --base-href /resellah_landing_welcome_new/
-          # Ensure all required files are present
+          
+          # Create 404 page
           cp build/web/index.html build/web/404.html
-          # Copy assets manually to ensure they're available
-          mkdir -p build/web/assets/images
-          cp -r assets/images/* build/web/assets/images/
+          
+          # Debug output
+          echo "Contents of build/web directory:"
+          ls -la build/web
+          echo "Contents of build/web/assets directory:"
+          ls -la build/web/assets || true
       
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/web
-          force_orphan: true  # This creates a single-commit history 
+          force_orphan: true 
