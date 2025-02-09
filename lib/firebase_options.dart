@@ -19,70 +19,16 @@ class DefaultFirebaseOptions {
     if (kIsWeb) {
       return web;
     }
-    switch (defaultTargetPlatform) {
-      case TargetPlatform.android:
-        return android;
-      case TargetPlatform.iOS:
-        return ios;
-      case TargetPlatform.macOS:
-        return macos;
-      case TargetPlatform.windows:
-        return windows;
-      case TargetPlatform.linux:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for linux - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
-      default:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions are not supported for this platform.',
-        );
-    }
+    throw UnsupportedError('Unsupported platform');
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAfdlnCpaFdK_FwZWz7w1gElxOEfOoctKE',
-    appId: '1:281420460156:web:9eefa3ab596049d62d19f9',
-    messagingSenderId: '281420460156',
-    projectId: 'resellahlanding',
-    authDomain: 'resellahlanding.firebaseapp.com',
-    storageBucket: 'resellahlanding.firebasestorage.app',
-    measurementId: 'G-66L6MW0DK0',
-  );
-
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCKCRuwSEYh32fRGeiMfu0JGP_AyLTEzkM',
-    appId: '1:281420460156:android:06d6c75d3e4268ba2d19f9',
-    messagingSenderId: '281420460156',
-    projectId: 'resellahlanding',
-    storageBucket: 'resellahlanding.firebasestorage.app',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBRDu8G5EQDI8Bv9L-tiVkXxD2ESr1vZYQ',
-    appId: '1:281420460156:ios:00c5d12b3df316e02d19f9',
-    messagingSenderId: '281420460156',
-    projectId: 'resellahlanding',
-    storageBucket: 'resellahlanding.firebasestorage.app',
-    iosBundleId: 'com.example.resellahLandingNew',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBRDu8G5EQDI8Bv9L-tiVkXxD2ESr1vZYQ',
-    appId: '1:281420460156:ios:00c5d12b3df316e02d19f9',
-    messagingSenderId: '281420460156',
-    projectId: 'resellahlanding',
-    storageBucket: 'resellahlanding.firebasestorage.app',
-    iosBundleId: 'com.example.resellahLandingNew',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyAfdlnCpaFdK_FwZWz7w1gElxOEfOoctKE',
-    appId: '1:281420460156:web:6a4f460cd6e9c6dc2d19f9',
-    messagingSenderId: '281420460156',
-    projectId: 'resellahlanding',
-    authDomain: 'resellahlanding.firebaseapp.com',
-    storageBucket: 'resellahlanding.firebasestorage.app',
-    measurementId: 'G-TCVFCCEYWM',
+    apiKey: 'your-api-key',
+    appId: 'your-app-id',
+    messagingSenderId: 'your-sender-id',
+    projectId: 'your-project-id',
+    authDomain: 'your-auth-domain',
+    storageBucket: 'your-storage-bucket',
+    measurementId: 'your-measurement-id',
   );
 }
