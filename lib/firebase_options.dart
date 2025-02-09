@@ -23,12 +23,12 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'your-api-key',
-    appId: 'your-app-id',
-    messagingSenderId: 'your-sender-id',
-    projectId: 'your-project-id',
-    authDomain: 'your-auth-domain',
-    storageBucket: 'your-storage-bucket',
-    measurementId: 'your-measurement-id',
+    apiKey: 'AIzaSyAfdlnCpaFdK_FwZWz7w1gElxOEfOoctKE',
+    appId: '1:281420460156:web:9eefa3ab596049d62d19f9',
+    messagingSenderId: '281420460156',
+    projectId: 'resellahlanding',
+    authDomain: 'resellahlanding.firebaseapp.com',
+    storageBucket: 'resellahlanding.firebasestorage.app',
+    measurementId: 'G-66L6MW0DK0',
   );
 }
