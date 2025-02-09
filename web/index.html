@@ -31,26 +31,14 @@
 <body>
   <script>
     window.addEventListener('load', function(ev) {
-      // Call FlutterLoader with the correct service worker version
-      FlutterLoader.load({
-        serviceWorkerVersion: "{{flutter_service_worker_version}}"
-      }).then(appRunner => appRunner.runApp());
-    });
-  </script>
-</body>
-</html>
-
-  <script>
-    window.flutterWebRenderer = "html";
-  </script>
-</head>
-<body>
-  <script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
-      FlutterLoader.load({
-  serviceWorkerVersion: "{{flutter_service_worker_version}}"
-      }).then(appRunner => appRunner.runApp());
+      _flutter.loader.loadEntrypoint({
+        serviceWorkerVersion: null,
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
+          });
+        }
+      });
     });
   </script>
 </body>
