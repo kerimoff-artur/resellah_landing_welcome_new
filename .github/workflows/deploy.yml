@@ -28,6 +28,9 @@ jobs:
           flutter build web --base-href /resellah_landing_welcome_new/
           # Ensure all required files are present
           cp build/web/index.html build/web/404.html
+          # Copy assets manually to ensure they're available
+          mkdir -p build/web/assets/images
+          cp -r assets/images/* build/web/assets/images/
       
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

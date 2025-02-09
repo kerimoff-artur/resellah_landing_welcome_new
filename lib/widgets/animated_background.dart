@@ -42,11 +42,11 @@ class _AnimatedBackgroundState extends State<AnimatedBackground> with SingleTick
     return Container(
       width: MediaQuery.of(context).size.width,
       height: height * 4, // 10% extra height for overlap
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(AppImages.textLogoLight),
           repeat: ImageRepeat.repeat,
-          scale: 4.5, // We might need to adjust this scale
+          scale: 6.0, // Increased scale to make pattern more visible
           opacity: 0.2,
         ),
       ),
