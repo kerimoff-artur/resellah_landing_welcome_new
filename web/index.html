@@ -20,24 +20,27 @@
   <title>Resellah</title>
   <link rel="manifest" href="manifest.json">
 
-  <!-- Load Flutter JS -->
-  <script src="flutter.js" defer></script>
-
-  <!-- Ensure Flutter Web uses HTML renderer -->
   <script>
-    window.flutterWebRenderer = "html";
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = null;
   </script>
+  <script src="flutter.js" defer></script>
 </head>
 <body>
   <script>
     window.addEventListener('load', function(ev) {
-      _flutter.loader.loadEntrypoint({
-        serviceWorkerVersion: null,
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
-            appRunner.runApp();
-          });
+      _flutter = {
+        loader: {
+          loadEntrypoint: function(options) {
+            var scriptTag = document.createElement('script');
+            scriptTag.src = 'main.dart.js';
+            scriptTag.type = 'application/javascript';
+            document.body.append(scriptTag);
+          }
         }
+      };
+      _flutter.loader.loadEntrypoint({
+        serviceWorkerVersion: serviceWorkerVersion
       });
     });
   </script>
