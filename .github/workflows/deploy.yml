@@ -23,10 +23,14 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
         
-      - name: Verify Directory Structure
+      - name: List Project Structure
         run: |
-          mkdir -p assets/images
-          ls -la assets/images || true
+          echo "Project root:"
+          ls -la
+          echo "\nAssets directory:"
+          ls -la assets/ || true
+          echo "\nImages directory:"
+          ls -la assets/images/ || true
           
       - name: Build
         run: |
@@ -37,10 +41,10 @@ jobs:
           cp build/web/index.html build/web/404.html
           
           # Debug output
-          echo "Contents of build/web directory:"
-          ls -la build/web
-          echo "Contents of build/web/assets directory:"
-          ls -la build/web/assets || true
+          echo "Build output:"
+          ls -la build/web/
+          echo "\nBuild assets:"
+          ls -la build/web/assets/ || true
       
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
